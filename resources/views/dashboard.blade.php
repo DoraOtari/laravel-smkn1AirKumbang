@@ -1,17 +1,20 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
+@extends('tema')
+@section('konten')
+    <div class="px-5 py-2 bg-body-tertiary shadow-sm mb-3">
+        <h1 style="font-family: Impact">
+            Hai, {{ Auth::user()->name }} Selamat Datang
+        </h1>
+    </div>
+    <div class="row justify-content-center align-items-center mx-0">
+        <div class="col-5">
+            <h1 class="text-uppercase fw-bold"><i class="bi bi-calendar-date"></i> Aplikasi Absensi</h1>
+            <p class="text-capitalize fw-light display-4">
+                Menghitung Absen Semudah Menghitung Hari di Kalender Anda
+            </p>
+        <a href="" class="btn btn-primary"><i class="bi-pen"></i> Absen</a>
+        </div>
+        <div class="col-5">
+            <img class="img-fluid" src="{{ asset('gambar welcome.jpg') }}" alt="">
         </div>
     </div>
-</x-app-layout>
+@endsection
