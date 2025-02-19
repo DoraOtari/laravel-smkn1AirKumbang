@@ -4,6 +4,9 @@
     <div class="card">
         <div class="card-body">
             <h3 class="card-title">Data Jabatan</h3>
+            <a href="{{ url('jabatan/tambah') }}" class="btn btn-primary">
+                Tambah
+            </a>
             <table class="table">
                 <thead>
                     <tr>

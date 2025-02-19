@@ -31,3 +31,4 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::view('jabatan','jabatan');
+Route::view('/jabatan/tambah','tambah_jabatan');

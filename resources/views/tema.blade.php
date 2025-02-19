@@ -18,7 +18,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house"></i> Home</a>
+                    <a class="nav-link active" aria-current="page" href="{{ url('/dashboard') }}"><i class="bi bi-house"></i> Home</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#"><i class="bi bi-clock-history"></i> Riwayat</a>
@@ -28,7 +28,7 @@
                       <i class="bi bi-people"></i> Data
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Jabatan</a></li>
+                      <li><a class="dropdown-item" href="{{ url('/jabatan') }}">Jabatan</a></li>
                       <li><a class="dropdown-item" href="#"> Karyawan</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li>
