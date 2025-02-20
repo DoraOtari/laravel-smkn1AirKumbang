@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Jabatan;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +33,12 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::view('jabatan','jabatan');
+Route::view('/jabatan','jabatan');
 Route::view('/jabatan/tambah','tambah_jabatan');
+Route::post('/jabatan', function(Request $request){
+    Jabatan::create([
+        'nama_jabatan' => $request->nama_jabatan,
+        'gaji_jabatan' => $request->gaji_jabatan,
+    ]);
+    return redirect('/jabatan')->with('pesan','Berhasil tambah jabatan');
+});
