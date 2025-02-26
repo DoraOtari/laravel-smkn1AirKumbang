@@ -34,3 +34,7 @@ Route::post('/jabatan', function(Request $request){
     ]);
     return redirect('/jabatan')->with('pesan','Berhasil tambah jabatan');
 });
+Route::delete('/jabatan/{id}', function(int $id){
+    Jabatan::destroy($id);
+    return redirect('/jabatan')->with('pesan', 'berhasil hapus jabatan');
+});

@@ -26,7 +26,7 @@
                         <td>{{ $item->nama_jabatan }}</td>
                         <td>Rp. {{ number_format($item->gaji_jabatan,0,',','.') }}</td>
                         <td>
-                            <form action="{{ url('jabatan') }}" method="post">
+                            <form action="{{ url('jabatan/'.$item->id) }}" method="post">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger">
