@@ -31,6 +31,9 @@ Route::post('/jabatan', function(Request $request){
     $validasi = $request->validate([
         'nama_jabatan' => 'required',
         'gaji_jabatan' => 'required',
+    ],[
+        'nama_jabatan.required' => 'nama jabatan dk pacak kosong',
+        'gaji_jabatan.required' => 'gaji jabatan dk pacak kosong',
     ]);
     Jabatan::create($validasi);
     return redirect('/jabatan')->with('pesan','Berhasil tambah jabatan');
