@@ -17,6 +17,7 @@
                     <tr>
                         <th>Nama Jabatan</th>
                         <th>Gaji Jabatan</th>
+                        <th>Edit</th>
                         <th>Hapus</th>
                     </tr>
                 </thead>
@@ -25,6 +26,7 @@
                     <tr>
                         <td>{{ $item->nama_jabatan }}</td>
                         <td>Rp. {{ number_format($item->gaji_jabatan,0,',','.') }}</td>
+                        <td><a class="btn btn-primary" href='{{ url("jabatan/$item->id/edit") }}'><i class="bi-pen"></i></a></td>
                         <td>
                             <form action="{{ url('jabatan/'.$item->id) }}" method="post">
                                 @csrf
@@ -42,12 +44,4 @@
         </div>
     </div>
 </div>    
-
-
-
-
-
-
-
-
 @endsection

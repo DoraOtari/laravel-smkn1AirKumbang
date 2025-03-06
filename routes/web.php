@@ -28,12 +28,28 @@ Route::get('/jabatan',function(){
 });
 Route::view('/jabatan/tambah','tambah_jabatan');
 Route::post('/jabatan', function(Request $request){
-    Jabatan::create([
-        'nama_jabatan' => $request->nama_jabatan,
-        'gaji_jabatan' => $request->gaji_jabatan,
+    $validasi = $request->validate([
+        'nama_jabatan' => 'required',
+        'gaji_jabatan' => 'required',
     ]);
+    Jabatan::create($validasi);
     return redirect('/jabatan')->with('pesan','Berhasil tambah jabatan');
 });
+
+Route::get('/jabatan/{jabatan}/edit', function(Jabatan $jabatan){
+    return view('edit_jabatan',compact('jabatan'));
+});
+
+Route::put('/jabatan/{id}', function (int $id, Request $req) {
+    Jabatan::where('id', $id)->update(
+        [
+            'nama_jabatan' => $req->nama_jabatan,
+            'gaji_jabatan' => $req->gaji_jabatan,
+        ]
+    );
+    return redirect('/jabatan')->with('pesan', 'berhasil update jabatan');
+});
+
 Route::delete('/jabatan/{id}', function(int $id){
     Jabatan::destroy($id);
     return redirect('/jabatan')->with('pesan', 'berhasil hapus jabatan');
