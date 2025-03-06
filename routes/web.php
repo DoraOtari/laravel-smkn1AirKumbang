@@ -44,12 +44,14 @@ Route::get('/jabatan/{jabatan}/edit', function(Jabatan $jabatan){
 });
 
 Route::put('/jabatan/{id}', function (int $id, Request $req) {
-    Jabatan::where('id', $id)->update(
-        [
-            'nama_jabatan' => $req->nama_jabatan,
-            'gaji_jabatan' => $req->gaji_jabatan,
-        ]
-    );
+    $validasi = $req->validate([
+        'nama_jabatan' => 'required',
+        'gaji_jabatan' => 'required',
+    ],[
+        'nama_jabatan.required' => 'nama jabatan dk pacak kosong',
+        'gaji_jabatan.required' => 'gaji jabatan dk pacak kosong',
+    ]);
+    Jabatan::where('id', $id)->update($validasi);
     return redirect('/jabatan')->with('pesan', 'berhasil update jabatan');
 });
 

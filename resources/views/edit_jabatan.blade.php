@@ -11,11 +11,17 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="nama_jabatan" class="form-label">Nama Jabatan</label>
-                                <input value="{{ $jabatan->nama_jabatan }}" placeholder="masukan nama jabatan" type="text" name="nama_jabatan" id="nama_jabatan" class="form-control">
+                                <input value="{{ $jabatan->nama_jabatan }}" placeholder="masukan nama jabatan" type="text" name="nama_jabatan" id="nama_jabatan" class="form-control @error('nama_jabatan') is-invalid @enderror">
+                                @error('nama_jabatan')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="gaji_jabatan" class="form-label">Gaji Jabatan</label>
-                                <input value="{{ $jabatan->gaji_jabatan }}" placeholder="masukan gaji jabatan" type="number" name="gaji_jabatan" id="gaji_jabatan" class="form-control">
+                                <input value="{{ $jabatan->gaji_jabatan }}" placeholder="masukan gaji jabatan" type="number" name="gaji_jabatan" id="gaji_jabatan" class="form-control @error('gaji_jabatan') is-invalid @enderror">
+                                @error('gaji_jabatan')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-success col-12">Submit</button>
