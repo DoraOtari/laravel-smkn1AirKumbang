@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,4 +11,8 @@ class Jabatan extends Model
     use HasFactory;
     protected $table = 'jabatan';
     protected $guarded = ['id'];
+
+    function scopeCari(Builder $query, String $keyword) : void {
+        $query->where('nama_jabatan', 'LIKE', "%$keyword%");
+    }
 }

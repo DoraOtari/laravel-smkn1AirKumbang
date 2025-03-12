@@ -23,7 +23,11 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('/jabatan',function(){
-    $jabatan = Jabatan::all();
+    if (request('keyword')) {
+        $jabatan = Jabatan::cari(request('keyword'))->paginate(5);
+    } else {
+        $jabatan = Jabatan::paginate(5);
+    }
     return view('jabatan', compact('jabatan'));
 });
 Route::view('/jabatan/tambah','tambah_jabatan');

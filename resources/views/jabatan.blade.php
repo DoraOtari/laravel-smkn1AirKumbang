@@ -9,7 +9,13 @@
     <div class="card">
         <div class="card-body">
             <h3 class="card-title">Data Jabatan</h3>
-            <a href="{{ url('jabatan/tambah') }}" class="btn btn-primary">
+            <form action="{{ url('jabatan') }}" method="get">
+                <div class="hstack col-6 float-end">
+                    <input value="{{ request('keyword') }}" type="search" name="keyword" class="form-control me-2" placeholder="Cari jabatan">
+                    <button type="submit" class="btn btn-warning"><i class="bi-search"></i></button>
+                </div>
+            </form>
+            <a href="{{ url('jabatan/tambah') }}" class="btn btn-success">
                 Tambah
             </a>
             <table class="table">
@@ -41,6 +47,7 @@
                     
                 </tbody>
             </table>
+            {{ $jabatan->links() }}
         </div>
     </div>
 </div>    
