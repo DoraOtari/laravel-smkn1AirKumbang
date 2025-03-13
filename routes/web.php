@@ -2,8 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Models\Jabatan;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+
 
 
 Route::get('/', function () {
@@ -65,3 +69,8 @@ Route::delete('/jabatan/{id}', function(int $id){
 });
 
 Route::view('upload', 'upload');
+Route::post('upload', function(Request $req){
+    $lokasi = $req->file('avatar')->store('Avatars');
+    User::where('id', Auth::user()->id)->update(['avatar' => $lokasi]);
+    return redirect('dashboard');
+});

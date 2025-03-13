@@ -4,7 +4,7 @@
         <h1 style="font-family: Impact">
             Hai, {{ Auth::user()->name }} Selamat Datang
         </h1>
-        <img src="https://placehold.co/400" width="50" class="ms-auto rounded-circle">
+        <img src="{{ asset('storage/'.Auth::user()->avatar) }}" width="50" class="ms-auto rounded-circle">
     </div>
     <div class="row justify-content-center align-items-center mx-0">
         <div class="col-5">
