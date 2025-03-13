@@ -63,3 +63,5 @@ Route::delete('/jabatan/{id}', function(int $id){
     Jabatan::destroy($id);
     return redirect('/jabatan')->with('pesan', 'berhasil hapus jabatan');
 });
+
+Route::view('upload', 'upload');
